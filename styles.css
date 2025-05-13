@@ -1,174 +1,56 @@
-body{
-display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Added to remove default body margin */
+  background-color: #faf9fd; /* Default background, can be overridden by media queries */
   transition: background-color 0.5s ease;
 }
 
 :root {
   --light-background: #faf9fd;
-  --dark-background: #faf9fd;
-  --loader-square-light: #96bfc7;
-  --loader-square-dark: #96bfc7;
+  --dark-background: #faf9fd; /* User's original dark background was same as light */
 }
 
 @media (prefers-color-scheme: light) {
   body {
     background-color: var(--light-background);
-    color: #c50e0e; /* Adjust text color for better readability */
-  }
-  .loader-square {
-    background: var(--loader-square-light);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--dark-background);
-    color: #fff; /* Adjust text color for better readability */
   }
-  .loader-square {
-    background: var(--loader-square-dark);
-  }
-}
-
-@keyframes square-animation {
- 0% {
-  left: 0;
-  top: 0;
- }
-
- 10.5% {
-  left: 0;
-  top: 0;
- }
-
- 12.5% {
-  left: 32px;
-  top: 0;
- }
-
- 23% {
-  left: 32px;
-  top: 0;
- }
-
- 25% {
-  left: 64px;
-  top: 0;
- }
-
- 35.5% {
-  left: 64px;
-  top: 0;
- }
-
- 37.5% {
-  left: 64px;
-  top: 32px;
- }
-
- 48% {
-  left: 64px;
-  top: 32px;
- }
-
- 50% {
-  left: 32px;
-  top: 32px;
- }
-
- 60.5% {
-  left: 32px;
-  top: 32px;
- }
-
- 62.5% {
-  left: 32px;
-  top: 64px;
- }
-
- 73% {
-  left: 32px;
-  top: 64px;
- }
-
- 75% {
-  left: 0;
-  top: 64px;
- }
-
- 85.5% {
-  left: 0;
-  top: 64px;
- }
-
- 87.5% {
-  left: 0;
-  top: 32px;
- }
-
- 98% {
-  left: 0;
-  top: 32px;
- }
-
- 100% {
-  left: 0;
-  top: 0;
- }
 }
 
 .loader {
- position: relative;
- width: 96px;
- height: 96px;
- transform: rotate(45deg);
+  /* The body is already a flex container centering its children. */
+  /* No specific width/height needed here if the image itself has dimensions */
+  display: flex; /* Ensures the image inside is also centered if needed */
+  justify-content: center;
+  align-items: center;
 }
 
-.loader-square {
- position: absolute;
- top: 0;
- left: 0;
- width: 28px;
- height: 28px;
- margin: 2px;
- border-radius: 0px;
- background-size: cover;
- background-position: center;
- background-attachment: fixed;
- animation: square-animation 10s ease-in-out infinite both;
+#loader-icon {
+  width: 120px;  /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  animation: pulse-animation 1.5s ease-in-out infinite;
 }
 
-.loader-square:nth-of-type(0) {
- animation-delay: 0s;
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.loader-square:nth-of-type(1) {
- animation-delay: -1.4285714286s;
-}
-
-.loader-square:nth-of-type(2) {
- animation-delay: -2.8571428571s;
-}
-
-.loader-square:nth-of-type(3) {
- animation-delay: -4.2857142857s;
-}
-
-.loader-square:nth-of-type(4) {
- animation-delay: -5.7142857143s;
-}
-
-.loader-square:nth-of-type(5) {
- animation-delay: -7.1428571429s;
-}
-
-.loader-square:nth-of-type(6) {
- animation-delay: -8.5714285714s;
-}
-
-.loader-square:nth-of-type(7) {
- animation-delay: -10s;
-}
