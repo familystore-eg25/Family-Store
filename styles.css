@@ -34,7 +34,9 @@ body {
 }
 
 #loader-icon {
-  width: 120px;  /* Adjust size as needed */
+  width: 15vw;  /* Adjust size based on viewport width */
+  max-width: 120px; /* Maximum size */
+  min-width: 60px; /* Minimum size */
   height: auto; /* Maintain aspect ratio */
   animation: pulse-animation 1.5s ease-in-out infinite;
 }
